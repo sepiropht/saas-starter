@@ -1,0 +1,14 @@
+version: '2'
+services:
+  easy-hhtps:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: ehttps
+    ports:
+      - '5000:3000'
+    volumes:
+      - ./:/app/
+networks:
+  default:
+    name: caddy

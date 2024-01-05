@@ -1,0 +1,18 @@
+version: '2'
+services:
+  easy-https:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ehttps
+    ports:
+      - '3001:3000'
+    volumes:
+      - ./components:/home/node/app/components
+      - ./app:/home/node/app/app
+      - ./hooks:/home/node/app/hooks
+      - ./lib:/home/node/app/lib
+    networks:
+      - fastbook
+networks:
+  fastbook:
